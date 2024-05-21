@@ -1,0 +1,39 @@
+.renk {
+  background-color: aquamarine;
+}
+.title-h1 {
+  font-family: arial;
+}
+.description-p {
+  font-family: arial;
+  font-size: 20px;
+}
+.price-h1 {
+  font-size: 50px;
+  font-family: arial;
+  font-weight: bold;
+  color: rgb(185, 76, 76);
+}
+.plus-minus {
+  display: flex;
+  align-items: center;
+}
+.plus {
+  font-size: 40px;
+  margin-right: 5px;
+}
+.minus {
+  font-size: 40px;
+  margin-left: 5px;
+}
+.count {
+  font-size: 35px;
+}
+.card-btn {
+  margin-top: 25px;
+  border: none;
+  padding: 10px;
+  background-color: rgb(185, 76, 76);
+  color: #fff;
+  border-radius: 5px;
+}
