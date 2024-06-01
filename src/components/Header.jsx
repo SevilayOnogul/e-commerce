@@ -10,7 +10,7 @@ import { store } from "../redux/store";
 import { setDrawer } from "../redux/slices/basketSlice";
 
 function Header() {
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(true);
 
   const { products } = useSelector((store) => store.basket);
 

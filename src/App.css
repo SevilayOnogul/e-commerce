@@ -20,3 +20,6 @@ body {
 .drawer {
   width: 500px !important;
 }
+button {
+  cursor: pointer;
+}

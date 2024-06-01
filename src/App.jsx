@@ -7,6 +7,8 @@ import Loading from "./components/Loading";
 import Drawer from "@mui/material/Drawer";
 import { useDispatch, useSelector } from "react-redux";
 import { calculateBasket, setDrawer } from "./redux/slices/basketSlice";
+import { removeItem } from "./redux/slices/basketSlice";
+import { store } from "./redux/store";
 
 function App() {
   const { products, drawer, totalAmount } = useSelector(
@@ -17,7 +19,7 @@ function App() {
 
   useEffect(() => {
     dispatch(calculateBasket());
-  }, []);
+  }, [products]);
 
   return (
     <div>
@@ -53,9 +55,12 @@ function App() {
                         width: "60px",
                       }}
                     >
-                      {product.price}TL
+                      {product.price}₺
                     </p>
                     <button
+                      onClick={() => {
+                        dispatch(removeItem(product.id));
+                      }}
                       style={{
                         padding: "5px",
                         borderRadius: "5px",
@@ -72,7 +77,9 @@ function App() {
               );
             })}
           <div>
-            <p style={{ textAlign: "center" }}>Toplam tutar: {totalAmount}</p>
+            <p style={{ textAlign: "center", fontWeight: "bold" }}>
+              Toplam tutar: <span>{totalAmount.toFixed(2)}₺</span>
+            </p>
           </div>
         </Drawer>
       </PageContainer>

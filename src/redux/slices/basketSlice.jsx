@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, removeListener } from "@reduxjs/toolkit";
 import { json } from "react-router-dom";
 
 const getBasketFromStorage = () => {
@@ -22,6 +22,13 @@ export const basketSlice = createSlice({
   name: "basket",
   initialState,
   reducers: {
+    removeItem: (state, action) => {
+      const itemId = action.payload;
+      state.products = state.products.filter((item) => item.id !== itemId);
+
+      writeFromBasketToStorage(state.products);
+    },
+
     addToBasket: (state, action) => {
       const findProduct =
         state.products &&
@@ -52,5 +59,6 @@ export const basketSlice = createSlice({
   },
 });
 
-export const { addToBasket, setDrawer, calculateBasket } = basketSlice.actions;
+export const { addToBasket, setDrawer, calculateBasket, removeItem } =
+  basketSlice.actions;
 export default basketSlice.reducer;
